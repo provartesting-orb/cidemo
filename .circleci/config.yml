@@ -6,7 +6,7 @@ workflows:
   version: 2.1
   run_all:
     jobs:
-      - provardemo/run_provar:
+      - provar/run_provar:
           majorversion: "1.9.10"
           minorversion: "02"
           url: "download.provartesting.com"
