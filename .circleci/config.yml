@@ -1,0 +1,29 @@
+version: 2.1
+orbs:
+  provardemo: testing_himanshu/provardemo@dev:first
+  
+#jobs:
+#  build:
+#    description: | 
+#      Checkout Code test cases from Git, run test cases and publish report
+#    executor:
+#      name: provardemo/default
+#      tag: "8-jdk-stretch-node-browsers"
+#    steps:
+#      - checkout
+#      - provardemo/setup_provar:
+#          version: "1.9.10.023"
+#          url: "ds76ai6bfmt95.cloudfront.net"
+#      - run: ant -Dprovar.home="/home/circleci/project/Provar_Home" -f DemoProject/build.xml
+           
+workflows:
+  version: 2.1
+  run_all:
+    jobs:
+      - provardemo/run_provar:
+          majorversion: "1.9.10"
+          minorversion: "02"
+          url: "dz0x2gbxn8w5x.cloudfront.net"
+          name: running test cases using ant
+          steps:
+            - run: ant -Dprovar.home="/home/circleci/project/Provar_Home" -f DemoProject/build.xml
